@@ -1,26 +1,24 @@
 <template>
-  <div class="container">
+  <div class="container" fluid="lg">
     <div>
       <Logo />
       <h1 class="title">
-        portfolio
+        Sukhvinder Singh
       </h1>
       <div class="links">
         <a
-          href="https://nuxtjs.org/"
-          target="_blank"
+          href="/projects"
           rel="noopener noreferrer"
           class="button--green"
         >
-          Documentation
+          Past Projects
         </a>
         <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
+          href="/collaborate"
           rel="noopener noreferrer"
           class="button--grey"
         >
-          GitHub
+          Collaborate
         </a>
       </div>
     </div>
@@ -39,6 +37,8 @@ export default {}
   justify-content: center;
   align-items: center;
   text-align: center;
+  /* background-image: url('../assets/background.jpg'); */
+  
 }
 
 .title {
@@ -57,6 +57,13 @@ export default {}
   font-size: 100px;
   color: #35495e;
   letter-spacing: 1px;
+}
+
+@media (max-width: 600px){
+  .title {
+      font-size: 60px;
+      line-height: 90px;
+  }
 }
 
 .subtitle {
