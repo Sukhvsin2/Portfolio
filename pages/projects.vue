@@ -35,6 +35,11 @@
 
 <script>
 export default {
+    head(){
+        return{
+            title: 'Projects'
+        }
+    },
     data(){
         return{
             active: 'all',
