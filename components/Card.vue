@@ -1,5 +1,5 @@
 <template>
-    <b-card :title="title">
+    <b-card :title="title" :sub-title="type">
         <b-card-text>{{content}}</b-card-text>
         <b-button v-if="link != null" :href="link" target="__blank">Visit</b-button>
     </b-card>
@@ -14,4 +14,7 @@ export default {
 </script>
 
 <style scoped>
+.card{
+    height: 100%;
+}
 </style>
