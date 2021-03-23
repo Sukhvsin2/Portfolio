@@ -27,11 +27,7 @@
                       </b-row>
                   </b-col>
               </b-row>
-              <b-row class="p-3">
-                  <b-col class="my-2" v-for="(data, i) in content" :key="i" cols="12" lg="4" md="6" sm="12">
-                    <Card :title="data.title" :content="data.content" :link="data.link" :type="data.type"/>
-                  </b-col>
-              </b-row>
+                <Card :content="content" :selected="active" />
           </b-col>
       </b-row>
   </b-container>
@@ -45,17 +41,17 @@ export default {
             order: 'recent',
             categories:[{name: 'all'}, {name: 'company'}, {name: 'personal'}, {name: 'backend'}, {name: 'frontend'}],
             content: [
-                {title: 'Aussie Pet', content: 'I started this project while I was on internship for booking pet services. As a frontend engineer, I designed whole UI on VueJS. And, build functionality like: Messaging, Booking, Shopping for Pet Food, Dating.', link: null, type: 'May - Nov 2020 | Company'},
-                {title: 'AirBnb Clone', content: 'This is a clone of AirBnb UI, Made with ReactJS!!', link: 'https://aurbnbreactjs.netlify.app/', type: '2020 Arpil | UI'},
-                {title: 'Chatting Website', content: 'This project is an example of how web sockets work while we text eachother in realtime. This is built using ReactJS & ExpressJS for server.', link: 'https://socket-react-app.netlify.app/', type: 'June 2020 | Personal'},
-                {title: 'Resume Editor', content: 'This Project was on NuxtJS. I made resume editor like novo resume for the company. I used Vuex Store for state management, Vuetify & Vuesax for UI framework.', link: null, type: 'Feb - May 2020 | Company'},
-                {title: 'Face Filter', content: 'This was project I started after my training in Machine Learning with python, I created a face filter like snapchat with OpenCV.', link: null, type: '2019 May | Personal'},
-                {title: 'Face Attendance Syatem', content: 'This was the project I worked for my department at Univeristy. Build a attendance system with face recognition with python & OpenCV.', link: null, type: 'Sep 2019 | University'},
-                {title: 'Income Expense API', content: 'Django Based REST API project from scratch with drf framework. All api\'s with stats data of user\'s income & expense.', link: null, type: 'Dec 2020 | Personal'},
-                {title: 'Streaming Application', content: 'Built in flutter with NodeJs backend, i worked as frontend developer & built whole UI. This porject was application that consume videos from backend realtime.', link: null, type: 'Feb 2020 | Company'},
-                {title: 'Hulu Clone', content: 'Website built on ReactJs, consuming api from MoviesHD. Recommending movies according to selction & provding information from rating to reviews.', link: null, type: 'March 2020 | Personal'},
-                {title: 'Money Transfer App', content: 'Started while I was intern, built in React Native. Project was building a money transfer app with user stats, qr money sharing functionality, saving, etc.', link: null, type: 'Nov 2020 | Company'},
-                {title: 'School Management System', content: 'School Management System build on Nuxt.Js, with functionality of role like: admin, principal, teacher, student accounts.', link: null, type: 'Nov 2020 | Company'},
+                {title: 'Aussie Pet', content: 'I started this project while I was on internship for booking pet services. As a frontend engineer, I designed whole UI on VueJS. And, build functionality like: Messaging, Booking, Shopping for Pet Food, Dating.', link: null, type: 'May - Nov 2020 | Company', category: ['company', 'frontend', 'all']},
+                {title: 'AirBnb Clone', content: 'This is a clone of AirBnb UI, Made with ReactJS!!', link: 'https://aurbnbreactjs.netlify.app/', type: '2020 Arpil | UI', category: ['frontend', 'personal', 'all']},
+                {title: 'Chatting Website', content: 'This project is an example of how web sockets work while we text eachother in realtime. This is built using ReactJS & ExpressJS for server.', link: 'https://socket-react-app.netlify.app/', type: 'June 2020 | Personal', category: ['personal', 'frontend', 'all']},
+                {title: 'Resume Editor', content: 'This Project was on NuxtJS. I made resume editor like novo resume for the company. I used Vuex Store for state management, Vuetify & Vuesax for UI framework.', link: null, type: 'Feb - May 2020 | Company', category: ['comapany', 'fronend', 'all']},
+                {title: 'Face Filter', content: 'This was project I started after my training in Machine Learning with python, I created a face filter like snapchat with OpenCV.', link: null, type: '2019 May | Personal', category: ['personal', 'all']},
+                {title: 'Face Attendance Syatem', content: 'This was the project I worked for my department at Univeristy. Build a attendance system with face recognition with python & OpenCV.', link: null, type: 'Sep 2019 | University', category: ['university', 'personal', 'all']},
+                {title: 'Income Expense API', content: 'Django Based REST API project from scratch with drf framework. All api\'s with stats data of user\'s income & expense.', link: null, type: 'Dec 2020 | Personal', category: ['backend', 'personal', 'all']},
+                {title: 'Streaming Application', content: 'Built in flutter with NodeJs backend, i worked as frontend developer & built whole UI. This porject was application that consume videos from backend realtime.', link: null, type: 'Feb 2020 | Company', category: ['company', 'frontend', 'all']},
+                {title: 'Hulu Clone', content: 'Website built on ReactJs, consuming api from MoviesHD. Recommending movies according to selction & provding information from rating to reviews.', link: null, type: 'March 2020 | Personal', category: ['frontend', 'personal', 'all']},
+                {title: 'Money Transfer App', content: 'Started while I was intern, built in React Native. Project was building a money transfer app with user stats, qr money sharing functionality, saving, etc.', link: null, type: 'Nov 2020 | Company', category: ['company', 'frontend', 'all']},
+                {title: 'School Management System', content: 'School Management System build on Nuxt.Js, with functionality of role like: admin, principal, teacher, student accounts.', link: null, type: 'Nov 2020 | Company', category: ['company', 'frontend', 'all']},
             ]
         }
     },
@@ -81,13 +77,14 @@ export default {
 <style scoped>
 .container-fluid{
     background-color: #f1f2f6;
+    /* height: 100%; */
 }
 .options > button{
     color: white
 }
 .optionSection{
     background-color: #00b894;
-    /* position: relative; */
+    /* height: 100%; */
 }
 @media (max-width: 760px) {
     .optionSection{
