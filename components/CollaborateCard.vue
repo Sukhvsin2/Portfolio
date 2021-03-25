@@ -24,8 +24,8 @@ export default {
 }
 
 .title{
-  color: #0984e3;
-  font-size: 1.5rem;
+  color: #00b894;
+  font-size: 1.8rem;
   font-weight: bold;
   text-align: center;
 }

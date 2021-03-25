@@ -5,6 +5,7 @@
 </template>
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
 html {
   font-family:
     'Source Sans Pro',
@@ -22,6 +23,11 @@ html {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
+}
+
+body{
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
 }
 
 *,

@@ -82,14 +82,14 @@ export default {
 <style scoped>
 .container-fluid{
     background-color: #f1f2f6;
-    /* height: 100%; */
 }
 .options > button{
     color: white
 }
 .optionSection{
     background-color: #00b894;
-    /* height: 100%; */
+    height: 100vh;
+    overflow: auto;
 }
 @media (max-width: 760px) {
     .optionSection{
@@ -98,11 +98,13 @@ export default {
 }
 .optionDetails{
     padding-left: 25px;
+    height: 100vh;
+    overflow: auto;
 }
 .sectionDesc{
     text-transform: uppercase;
     text-align: center;
-    font-weight: 700;
+    font-weight: 600;
     margin-top: 10px;
     font-size: 0.9rem;
 }
