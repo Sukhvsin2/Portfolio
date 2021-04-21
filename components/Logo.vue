@@ -1,7 +1,7 @@
 <template>
   <div class="NuxtLogo" >
     <div style="border-radius: 100%; width: auto; height: 20vw; margin: auto;">
-      <img src="../assets/me.jpg" class="image" alt="image">
+      <img loading="lazy" src="../assets/me.jpg" class="image" alt="image">
     </div>
   </div>
 </template>
